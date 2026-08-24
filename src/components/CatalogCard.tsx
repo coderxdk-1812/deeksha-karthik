@@ -3,6 +3,7 @@ import type { Project } from "../data/types";
 import { ProjectIcon } from "./ProjectIcon";
 import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
 import { StatusBadge } from "./StatusBadge";
+import { resolveAssetUrl } from "../lib/apiClient";
 import styles from "./CatalogCard.module.css";
 
 export function CatalogCard({ project }: { project: Project }) {
@@ -12,7 +13,7 @@ export function CatalogCard({ project }: { project: Project }) {
     <Link to={`/projects/${project.slug}`} className={styles.card}>
       <div className={styles.thumbWrap}>
         {shot?.src ? (
-          <img src={shot.src} alt="" />
+          <img src={resolveAssetUrl(shot.src)} alt="" />
         ) : (
           <ScreenshotPlaceholder accent={project.accent} index={0} />
         )}

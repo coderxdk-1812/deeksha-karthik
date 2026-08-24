@@ -1,4 +1,5 @@
 import { useSiteData } from "../context/DataContext";
+import { resolveAssetUrl } from "../lib/apiClient";
 import styles from "./About.module.css";
 
 export function About() {
@@ -11,7 +12,7 @@ export function About() {
         <div className={styles.sticky}>
           {profile.photo && (
             <div className={styles.photoWrap}>
-              <img src={profile.photo} alt={`Photo of ${profile.name}`} />
+              <img src={resolveAssetUrl(profile.photo)} alt={`Photo of ${profile.name}`} />
             </div>
           )}
           <span className={styles.kicker}>about</span>

@@ -1,5 +1,6 @@
 import type { Accent } from "../lib/accent";
 import { accentHex } from "../lib/accent";
+import { resolveAssetUrl } from "../lib/apiClient";
 
 interface ProjectIconProps {
   name: string;
@@ -22,7 +23,7 @@ function initialsFor(name: string): string {
  */
 export function ProjectIcon({ name, icon, accent, size = 48 }: ProjectIconProps) {
   if (icon) {
-    return <img src={icon} alt="" width={size} height={size} style={{ borderRadius: 10 }} />;
+    return <img src={resolveAssetUrl(icon)} alt="" width={size} height={size} style={{ borderRadius: 10 }} />;
   }
 
   const { base, deep } = accentHex[accent];

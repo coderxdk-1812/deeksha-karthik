@@ -6,7 +6,16 @@ import multer from "multer";
 import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const UPLOADS_ROOT = path.resolve(__dirname, "../../uploads");
+
+/**
+ * On Render, set UPLOADS_DIR to a folder inside your persistent
+ * disk's mount path, e.g. `/data/uploads`. Without it, this falls
+ * back to the local dev location (server/uploads) so nothing changes
+ * for local work.
+ */
+export const UPLOADS_ROOT = process.env.UPLOADS_DIR
+  ? path.resolve(process.env.UPLOADS_DIR)
+  : path.resolve(__dirname, "../../uploads");
 
 fs.mkdirSync(path.join(UPLOADS_ROOT, "projects"), { recursive: true });
 fs.mkdirSync(path.join(UPLOADS_ROOT, "profile"), { recursive: true });

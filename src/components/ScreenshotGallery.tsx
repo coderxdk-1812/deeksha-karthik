@@ -3,6 +3,7 @@ import type { Screenshot } from "../data/types";
 import type { Accent } from "../lib/accent";
 import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
 import { Lightbox } from "./Lightbox";
+import { resolveAssetUrl } from "../lib/apiClient";
 import styles from "./ScreenshotGallery.module.css";
 
 interface ScreenshotGalleryProps {
@@ -27,7 +28,7 @@ export function ScreenshotGallery({ screenshots, accent, projectName }: Screensh
         aria-label={`View larger — ${primary.caption}`}
       >
         {primary.src ? (
-          <img src={primary.src} alt={`${projectName} — ${primary.caption}`} />
+          <img src={resolveAssetUrl(primary.src)} alt={`${projectName} — ${primary.caption}`} />
         ) : (
           <ScreenshotPlaceholder accent={accent} index={0} />
         )}
@@ -46,7 +47,7 @@ export function ScreenshotGallery({ screenshots, accent, projectName }: Screensh
             >
               <span className={styles.thumbImgWrap}>
                 {shot.src ? (
-                  <img src={shot.src} alt={`${projectName} — ${shot.caption}`} />
+                  <img src={resolveAssetUrl(shot.src)} alt={`${projectName} — ${shot.caption}`} />
                 ) : (
                   <ScreenshotPlaceholder accent={accent} index={i + 1} />
                 )}

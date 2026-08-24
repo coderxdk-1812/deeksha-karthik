@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Screenshot } from "../data/types";
 import type { Accent } from "../lib/accent";
 import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
+import { resolveAssetUrl } from "../lib/apiClient";
 import styles from "./Lightbox.module.css";
 
 interface LightboxProps {
@@ -77,7 +78,7 @@ export function Lightbox({ screenshots, initialIndex, accent, projectName, onClo
       >
         <div className={styles.imgWrap}>
           {shot.src ? (
-            <img src={shot.src} alt={`${projectName} — ${shot.caption}`} />
+            <img src={resolveAssetUrl(shot.src)} alt={`${projectName} — ${shot.caption}`} />
           ) : (
             <ScreenshotPlaceholder accent={accent} index={index} />
           )}

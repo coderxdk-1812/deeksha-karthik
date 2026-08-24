@@ -3,6 +3,7 @@ import type { Project } from "../data/types";
 import { ProjectIcon } from "./ProjectIcon";
 import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
 import { StatusBadge } from "./StatusBadge";
+import { resolveAssetUrl } from "../lib/apiClient";
 import styles from "./ShelfCard.module.css";
 
 interface ShelfCardProps {
@@ -17,7 +18,7 @@ export function ShelfCard({ project, size = "medium" }: ShelfCardProps) {
     <Link to={`/projects/${project.slug}`} className={`${styles.card} ${styles[size]}`}>
       <div className={styles.thumb}>
         {shot?.src ? (
-          <img src={shot.src} alt={`${project.name} — ${shot.caption}`} />
+          <img src={resolveAssetUrl(shot.src)} alt={`${project.name} — ${shot.caption}`} />
         ) : (
           <ScreenshotPlaceholder accent={project.accent} index={0} />
         )}

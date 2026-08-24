@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { resolveAssetUrl } from "../../lib/apiClient";
 import styles from "./ImageUploader.module.css";
 
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
@@ -55,7 +56,7 @@ export function ImageUploader({ label, imageUrl, shape = "square", hint, onUploa
     <div className={styles.wrap}>
       <div className={`${styles.preview} ${shape === "circle" ? styles.previewCircle : ""}`}>
         {imageUrl ? (
-          <img src={imageUrl} alt={`${label} preview`} />
+          <img src={resolveAssetUrl(imageUrl)} alt={`${label} preview`} />
         ) : (
           <svg className={styles.placeholderIcon} width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" />

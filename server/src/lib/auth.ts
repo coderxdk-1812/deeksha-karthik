@@ -47,18 +47,33 @@ export function pruneExpiredSessions(): void {
   db.prepare("DELETE FROM sessions WHERE expires_at < ?").run(new Date().toISOString());
 }
 
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
 export function setSessionCookie(res: Response, token: string): void {
   res.cookie(SESSION_COOKIE, token, {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    // Frontend and backend live on different Render subdomains in
+    // production, so the cookie has to be sent cross-site — that
+    // requires sameSite: "none", which browsers only honor when
+    // secure: true (HTTPS). Locally, frontend/backend are same-site
+    // through the Vite proxy over plain HTTP, so "lax" + non-secure
+    // is what actually works there; "none" without HTTPS would just
+    // get the cookie silently dropped by the browser.
+    sameSite: IS_PRODUCTION ? "none" : "lax",
+    secure: IS_PRODUCTION,
     maxAge: SESSION_TTL_MS,
     path: "/",
   });
 }
 
 export function clearSessionCookie(res: Response): void {
-  res.clearCookie(SESSION_COOKIE, { path: "/" });
+  // Must match the attributes the cookie was set with, or some
+  // browsers won't recognize it as the same cookie to clear.
+  res.clearCookie(SESSION_COOKIE, {
+    path: "/",
+    sameSite: IS_PRODUCTION ? "none" : "lax",
+    secure: IS_PRODUCTION,
+  });
 }
 
 export function getSessionToken(req: Request): string | undefined {

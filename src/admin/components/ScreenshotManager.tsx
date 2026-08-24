@@ -3,6 +3,7 @@ import type { DragEvent } from "react";
 import { projectsApi } from "../lib/adminApi";
 import type { AdminProject, AdminScreenshot } from "../lib/types";
 import { useToast } from "../AdminToastContext";
+import { resolveAssetUrl } from "../../lib/apiClient";
 import styles from "./ScreenshotManager.module.css";
 
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
@@ -133,7 +134,7 @@ export function ScreenshotManager({ projectId, screenshots, onChange }: Screensh
             }}
           >
             <div className={styles.thumb}>
-              {shot.src ? <img src={shot.src} alt={shot.caption || "Screenshot"} /> : <div />}
+              {shot.src ? <img src={resolveAssetUrl(shot.src)} alt={shot.caption || "Screenshot"} /> : <div />}
               {index === 0 && <span className={styles.primaryTag}>Featured</span>}
               <span className={styles.dragHandle} title="Drag to reorder" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

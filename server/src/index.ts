@@ -1,4 +1,5 @@
 import "dotenv/config";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
@@ -23,9 +24,17 @@ setInterval(pruneExpiredSessions, 1000 * 60 * 60).unref();
 
 const app = express();
 const PORT = Number(process.env.PORT ?? 4000);
-const CORS_ORIGIN = process.env.CORS_ORIGIN ?? "http://localhost:5173";
 
-app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
+/**
+ * The frontend's Render URL (Static Site) — separate origin from this
+ * API, so it must be explicitly allowed. Falls back to the local Vite
+ * dev server. Accepts a comma-separated list if you ever need to
+ * allow more than one origin (e.g. a preview URL and a custom domain).
+ */
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN ?? "http://localhost:5173";
+const allowedOrigins = ALLOWED_ORIGIN.split(",").map((o) => o.trim()).filter(Boolean);
+
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(cookieParser());
 app.use(express.json({ limit: "1mb" }));
 
@@ -43,10 +52,14 @@ app.use("/api/admin/profile", adminProfileRouter);
 app.use("/api/admin/comments", adminCommentsRouter);
 app.use("/api/admin", adminMiscRouter);
 
-// In production, serve the built frontend from this same origin so
-// admin cookies are same-site with no CORS complexity.
-if (process.env.NODE_ENV === "production") {
-  const clientDist = path.resolve(__dirname, "../../dist");
+// Optional: if the built frontend happens to be sitting next to this
+// server (a single-service deploy), serve it from the same origin so
+// admin cookies are same-site with no CORS complexity at all. On
+// Render's two-service setup this folder won't exist on the API
+// service — the frontend is its own Static Site — so this is skipped
+// entirely rather than erroring on every request.
+const clientDist = path.resolve(__dirname, "../../dist");
+if (process.env.NODE_ENV === "production" && fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
   app.get(/^(?!\/api|\/uploads).*/, (_req, res) => {
     res.sendFile(path.join(clientDist, "index.html"));
