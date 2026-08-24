@@ -1,0 +1,51 @@
+.section {
+  margin-top: 8px;
+}
+
+.headRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+.summary {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.thread {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--terracotta-deep);
+  margin-bottom: 22px;
+}
+
+.list {
+  margin-top: 28px;
+  border-top: 1.5px solid var(--line-strong);
+}
+
+.loading,
+.emptyList {
+  padding: 30px 4px;
+  color: var(--ink-faint);
+  font-size: 14.5px;
+}
+
+.errorBanner {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--terracotta-tint);
+  border: 1.5px solid var(--terracotta-deep);
+  color: var(--terracotta-deep);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}

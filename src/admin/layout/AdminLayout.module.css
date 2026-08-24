@@ -1,0 +1,153 @@
+.shell {
+  --a-bg: #f6f4ee;
+  --a-surface: #ffffff;
+  --a-border: #e3ddcf;
+  --a-border-strong: #cec5b0;
+  --a-text: #241a10;
+  --a-text-soft: #5a5040;
+  --a-text-faint: #93897a;
+  --a-accent: #bd5433;
+  --a-accent-deep: #92401f;
+  --a-danger: #ae2f22;
+  --a-danger-tint: #f6e0dc;
+  --a-success: #46521f;
+  --a-success-tint: #dde3c7;
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 236px 1fr;
+  background: var(--a-bg);
+  color: var(--a-text);
+  font-family: var(--font-body);
+}
+
+.sidebar {
+  border-right: 1px solid var(--a-border);
+  background: var(--a-surface);
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 15px;
+  padding: 0 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--a-text);
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--a-accent);
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--a-text-soft);
+  text-decoration: none;
+}
+
+.navLink:hover {
+  background: var(--a-bg);
+  color: var(--a-text);
+}
+
+.navLinkActive {
+  background: #f1e4da;
+  color: var(--a-accent-deep);
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid var(--a-border);
+}
+
+.footerLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--a-text-faint);
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footerLink:hover {
+  background: var(--a-bg);
+  color: var(--a-text-soft);
+}
+
+.logoutBtn {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--a-danger);
+  text-align: left;
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+
+.logoutBtn:hover {
+  background: var(--a-danger-tint);
+}
+
+.main {
+  min-width: 0;
+  padding: 36px 44px 80px;
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 16px;
+    overflow-x: auto;
+  }
+  .brand {
+    padding: 0 12px 0 0;
+  }
+  .nav {
+    flex-direction: row;
+  }
+  .sidebarFooter {
+    margin-top: 0;
+    margin-left: auto;
+    flex-direction: row;
+    border-top: none;
+    padding-top: 0;
+  }
+  .main {
+    padding: 24px 20px 60px;
+  }
+}

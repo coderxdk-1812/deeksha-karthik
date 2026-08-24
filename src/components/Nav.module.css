@@ -1,0 +1,136 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1.5px solid var(--line-strong);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.markStamp {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--terracotta);
+  color: var(--paper-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  transform: rotate(-4deg);
+  flex-shrink: 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.linkActive {
+  color: var(--ink);
+}
+
+.linkActive::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 3px;
+  height: 2.5px;
+  background: var(--terracotta);
+  border-radius: 2px;
+}
+
+.menuButton {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line-strong);
+  background: var(--paper-white);
+}
+
+.menuButton span,
+.menuButton span::before,
+.menuButton span::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  position: relative;
+  transition: transform 0.15s ease;
+}
+.menuButton span::before { position: absolute; top: -6px; }
+.menuButton span::after { position: absolute; top: 6px; }
+
+.mobilePanel {
+  display: none;
+  flex-direction: column;
+  padding: 8px 0 18px;
+  border-top: 1.5px solid var(--line);
+}
+
+.mobilePanel a {
+  padding: 12px 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.mobilePanel a:last-child {
+  border-bottom: none;
+}
+
+.mobilePanelOpen {
+  display: flex;
+}
+
+@media (max-width: 720px) {
+  .links {
+    display: none;
+  }
+  .menuButton {
+    display: flex;
+  }
+}

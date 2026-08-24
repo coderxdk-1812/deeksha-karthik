@@ -1,0 +1,45 @@
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #241a10;
+  color: #fbf5e8;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.bannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bannerDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dfa438;
+}
+
+.bannerLink {
+  color: #fbf5e8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.frame {
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+.loading {
+  padding: 100px;
+  text-align: center;
+  color: #93897a;
+  font-family: var(--font-mono);
+}

@@ -1,0 +1,93 @@
+.screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f4ee;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border: 1px solid #e3ddcf;
+  border-radius: 10px;
+  padding: 32px 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #241a10;
+  margin-bottom: 6px;
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bd5433;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 22px;
+  color: #241a10;
+  font-family: var(--font-body);
+}
+
+.label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5a5040;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  border: 1.5px solid #cec5b0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: var(--font-body);
+  margin-bottom: 16px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #bd5433;
+}
+
+.submitBtn {
+  width: 100%;
+  background: #241a10;
+  color: #fbf5e8;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 11px;
+  border-radius: 6px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #92401f;
+}
+
+.submitBtn:disabled {
+  opacity: 0.55;
+}
+
+.error {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #f6e0dc;
+  border: 1px solid #ae2f22;
+  color: #ae2f22;
+  border-radius: 6px;
+  font-size: 13.5px;
+}

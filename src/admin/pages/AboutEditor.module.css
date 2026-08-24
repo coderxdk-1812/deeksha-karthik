@@ -1,0 +1,139 @@
+.headRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dirtyDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bd5433;
+}
+
+.saveBtn {
+  background: #241a10;
+  color: #fbf5e8;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 10px 18px;
+  border-radius: 7px;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #92401f;
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e3ddcf;
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: #241a10;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5a5040;
+  margin-bottom: 6px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1.5px solid #cec5b0;
+  border-radius: 6px;
+  padding: 9px 11px;
+  font-size: 14px;
+  font-family: var(--font-body);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #bd5433;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 70px;
+  line-height: 1.5;
+}
+
+.paragraphRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.paragraphRow .textarea {
+  flex: 1;
+}
+
+.removeBtn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: #ae2f22;
+  border: 1.5px solid #e3ddcf;
+}
+
+.removeBtn:hover {
+  background: #f6e0dc;
+}
+
+.addBtn {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #5a5040;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1.5px dashed #cec5b0;
+}
+
+.addBtn:hover {
+  border-color: #bd5433;
+  color: #bd5433;
+}
+
+.linkRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 8px;
+  margin-bottom: 10px;
+}

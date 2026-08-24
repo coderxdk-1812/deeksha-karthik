@@ -1,0 +1,311 @@
+.emptyShelf {
+  padding: 60px 0;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  max-width: 48ch;
+}
+
+.hero {
+  padding: 56px 0 44px;
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 48px;
+  align-items: end;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--terracotta-deep);
+  letter-spacing: 0.04em;
+  display: inline-block;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.title {
+  font-size: clamp(40px, 5.6vw, 68px);
+  max-width: 14ch;
+}
+
+.titleAccent {
+  color: var(--terracotta-deep);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.blurb {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.heroActions {
+  margin-top: 26px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper-white);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 22px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.primaryBtn:hover {
+  background: var(--terracotta-deep);
+}
+
+.secondaryLink {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+
+.heroSide {
+  border-left: 1.5px dashed var(--line-strong);
+  padding-left: 32px;
+  padding-bottom: 6px;
+}
+
+.statList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+/* ---- shelf ---- */
+.shelfSection {
+  padding-bottom: 8px;
+}
+
+.shelfHeadRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+
+.shelfHeading {
+  font-size: 22px;
+}
+
+.shelfGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Fewer than 3 published projects — don't reserve a dead second
+   column, let the feature card take the full width instead. */
+.shelfGridSingle {
+  grid-template-columns: 1fr;
+}
+
+.shelfGridDouble {
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.shelfFeature {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.shelfGridSingle .shelfFeature,
+.shelfGridDouble .shelfFeature {
+  grid-row: 1;
+}
+
+.shelfMedium1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.shelfMedium2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---- more chips ---- */
+.moreSection {
+  margin-top: 34px;
+  padding: 22px 0 6px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.moreLabel {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px 8px 8px;
+  background: var(--paper-white);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.chip:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta-deep);
+}
+
+/* ---- about excerpt ---- */
+.aboutSection {
+  margin-top: 88px;
+  padding: 52px 0;
+  border-top: 1.5px solid var(--line-strong);
+  border-bottom: 1.5px solid var(--line-strong);
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 40px;
+}
+
+.aboutLabel {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.aboutHeading {
+  font-size: 30px;
+  margin-top: 10px;
+  max-width: 12ch;
+}
+
+.aboutText {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.aboutText a {
+  color: var(--terracotta-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- feedback CTA banner ---- */
+.feedbackBanner {
+  margin: 60px 0 80px;
+  padding: 40px 36px;
+  background: var(--paper-2);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.feedbackBanner h2 {
+  font-size: 24px;
+  max-width: 24ch;
+}
+
+.feedbackBanner p {
+  color: var(--ink-soft);
+  margin-top: 6px;
+  max-width: 48ch;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .heroSide {
+    border-left: none;
+    border-top: 1.5px dashed var(--line-strong);
+    padding-left: 0;
+    padding-top: 22px;
+  }
+  .statList {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .shelfGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .shelfFeature,
+  .shelfMedium1,
+  .shelfMedium2 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .aboutSection {
+    grid-template-columns: 1fr;
+  }
+  .aboutHeading {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 36px 0 32px;
+  }
+  .feedbackBanner {
+    padding: 28px 22px;
+  }
+}
