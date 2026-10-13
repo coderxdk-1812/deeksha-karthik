@@ -49,9 +49,9 @@ export function AdminToastProvider({ children }: { children: ReactNode }) {
               fontSize: 13.5,
               fontWeight: 600,
               fontFamily: "var(--font-body)",
-              color: t.kind === "success" ? "#293a10" : "#ae2f22",
-              background: t.kind === "success" ? "#dde3c7" : "#f6e0dc",
-              border: `1px solid ${t.kind === "success" ? "#46521f" : "#ae2f22"}`,
+              color: t.kind === "success" ? "#3f4b56" : "#a32a3c",
+              background: t.kind === "success" ? "#d9dfe3" : "#f3dfe3",
+              border: `1px solid ${t.kind === "success" ? "#3f4b56" : "#a32a3c"}`,
               boxShadow: "0 4px 14px rgba(36,26,16,0.12)",
               maxWidth: 320,
             }}

@@ -33,7 +33,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #75492e;
+  background: #5b6b78;
 }
 
 .headActions {
@@ -50,13 +50,13 @@
 }
 
 .pillPublished {
-  background: #dde3c7;
-  color: #46521f;
+  background: #d9dfe3;
+  color: #3f4b56;
 }
 
 .pillDraft {
-  background: #ece3d3;
-  color: #7a6a4c;
+  background: #e2e2e0;
+  color: #524f4a;
 }
 
 .saveBtn {
@@ -69,7 +69,7 @@
 }
 
 .saveBtn:hover:not(:disabled) {
-  background: #53331f;
+  background: #3f4b56;
 }
 
 .saveBtn:disabled {
@@ -136,7 +136,7 @@
 .textarea:focus,
 .select:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .textarea {
@@ -168,8 +168,8 @@
 }
 
 .notesCard {
-  background: #fdf6ee;
-  border: 1.5px dashed #d8a25a;
+  background: #f5f5f4;
+  border: 1.5px dashed #b9b6b0;
 }
 
 .notesLabel {
@@ -178,7 +178,7 @@
   gap: 6px;
   font-size: 12.5px;
   font-weight: 700;
-  color: #8a5a1e;
+  color: #524f4a;
   margin-bottom: 6px;
 }
 

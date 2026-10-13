@@ -21,7 +21,7 @@ interface FeaturedProject {
   category: string;
   status: "live" | "in-progress" | "resting";
   madeWith: string[];
-  accent: "brown" | "butter" | "green" | "blue";
+  accent: "slate" | "taupe";
   /** Negative so these always sort ahead of the seeded placeholders (0, 1, 2, …). */
   sortOrder: number;
 }
@@ -43,7 +43,7 @@ const featuredProjects: FeaturedProject[] = [
     category: "Browser Extension / Security",
     status: "live",
     madeWith: [],
-    accent: "brown",
+    accent: "slate",
     sortOrder: -3,
   },
   {
@@ -61,7 +61,7 @@ const featuredProjects: FeaturedProject[] = [
     category: "Study Tool / Productivity",
     status: "live",
     madeWith: ["React", "TypeScript", "Tailwind", "shadcn/ui", "Supabase"],
-    accent: "butter",
+    accent: "taupe",
     sortOrder: -2,
   },
   {
@@ -78,7 +78,7 @@ const featuredProjects: FeaturedProject[] = [
     category: "AI / Study Tool",
     status: "live",
     madeWith: ["Flutter"],
-    accent: "green",
+    accent: "slate",
     sortOrder: -1,
   },
 ];
@@ -161,6 +161,33 @@ const migrations: { id: string; run: () => void }[] = [
            updated_at = ?
          WHERE slug = 'safesurf' AND deleted_at IS NULL`,
       ).run(note, note, new Date().toISOString());
+    },
+  },
+  {
+    // ExamBuoy was seeded placeholder content. The real project is Revisebot
+    // (whose repository happens to still be named ExamBuoy), so the card was
+    // a duplicate. Deleting the project cascades to its screenshots.
+    id: "2026-10-remove-placeholder-exambuoy",
+    run() {
+      db.prepare("DELETE FROM comments WHERE project_slug = 'exambuoy'").run();
+      db.prepare("DELETE FROM projects WHERE slug = 'exambuoy'").run();
+    },
+  },
+  {
+    // The palette is now two accents: slate and taupe. Published projects
+    // alternate down the shelf so neighbours never match; anything else
+    // (drafts) just gets slate.
+    id: "2026-10-accents-slate-and-taupe",
+    run() {
+      const setAccent = db.prepare("UPDATE projects SET accent = ? WHERE id = ?");
+      const published = db
+        .prepare(
+          "SELECT id FROM projects WHERE deleted_at IS NULL AND publish_state = 'published' ORDER BY sort_order ASC, created_at ASC",
+        )
+        .all() as { id: string }[];
+      published.forEach((row, i) => setAccent.run(i % 2 === 0 ? "slate" : "taupe", row.id));
+
+      db.prepare("UPDATE projects SET accent = 'slate' WHERE accent NOT IN ('slate', 'taupe')").run();
     },
   },
 ];

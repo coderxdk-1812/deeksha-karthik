@@ -150,10 +150,13 @@ regenerates the favicon set (`public/favicon.ico`, 16/32px PNGs, apple-touch ico
 and the transparent nav mark (`src/assets/logo-mark.png`) from it. The script reuses
 `sharp` from `server/node_modules`, so run `npm run install:server` first.
 
-Accent colours are `brown`, `butter`, `green`, and `blue`. The brown is a chestnut
-(`--brown: #75492e`, with `--brown-deep` and `--brown-tint` companions in `src/index.css`)
-that replaced the original orange-red terracotta; it's mirrored in `src/lib/accent.ts`
-and the admin stylesheets, which hard-code their hexes.
+Accent colours are `slate` (dusty blue-slate) and `taupe` (a near-neutral gray), each with
+a deep shade for text/hover and a pale tint, defined in `src/index.css` and mirrored in
+`src/lib/accent.ts` (project icons and placeholder art) and the admin stylesheets, which
+hard-code their hexes. Projects alternate between the two down the shelf. Text colours
+and the cream paper are separate and unchanged. There is deliberately no orange, rust,
+yellow, green, or purple anywhere; the admin's destructive actions use a cool crimson,
+the only other hue.
 
 ## Data & security notes
 

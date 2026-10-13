@@ -11,7 +11,7 @@
 }
 
 .card:hover .name {
-  color: var(--brown-deep);
+  color: var(--slate-deep);
 }
 
 .card:hover .arrow {

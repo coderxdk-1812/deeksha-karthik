@@ -9,8 +9,8 @@
 }
 
 .itemAdmin {
-  border-left-color: var(--brown);
-  background: linear-gradient(90deg, var(--brown-tint) 0%, transparent 220px);
+  border-left-color: var(--slate);
+  background: linear-gradient(90deg, var(--slate-tint) 0%, transparent 220px);
 }
 
 .head {
@@ -36,7 +36,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--paper-white);
-  background: var(--brown);
+  background: var(--slate);
   padding: 2px 8px 2px 6px;
   border-radius: 20px;
 }
@@ -67,14 +67,14 @@
 }
 
 .helpfulBtn:hover:not(:disabled) {
-  border-color: var(--green);
-  color: var(--green-deep);
+  border-color: var(--slate);
+  color: var(--slate-deep);
 }
 
 .helpfulBtnActive {
-  color: var(--green-deep);
-  border-color: var(--green);
-  background: var(--green-tint);
+  color: var(--slate-deep);
+  border-color: var(--slate);
+  background: var(--slate-tint);
 }
 
 .helpfulBtn:disabled {

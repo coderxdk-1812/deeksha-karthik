@@ -18,8 +18,8 @@
 }
 
 .tile.dragOver {
-  border-color: #75492e;
-  box-shadow: 0 0 0 2px #eadac5;
+  border-color: #5b6b78;
+  box-shadow: 0 0 0 2px #d9dfe3;
 }
 
 .thumb {
@@ -82,7 +82,7 @@
 
 .captionInput:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .tileActions {
@@ -104,11 +104,11 @@
 }
 
 .tileBtnDanger {
-  color: #ae2f22;
+  color: #a32a3c;
 }
 
 .tileBtnDanger:hover {
-  background: #f6e0dc;
+  background: #f3dfe3;
 }
 
 .addTile {
@@ -127,8 +127,8 @@
 }
 
 .addTile:hover:not(:disabled) {
-  border-color: #75492e;
-  color: #75492e;
+  border-color: #5b6b78;
+  color: #5b6b78;
 }
 
 .addTile:disabled {

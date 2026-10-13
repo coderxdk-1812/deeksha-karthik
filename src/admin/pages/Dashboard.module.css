@@ -26,7 +26,7 @@
 }
 
 .addBtn:hover {
-  background: #53331f;
+  background: #3f4b56;
 }
 
 .tabs {
@@ -51,7 +51,7 @@
 
 .tabActive {
   color: #241a10;
-  border-bottom-color: #75492e;
+  border-bottom-color: #5b6b78;
 }
 
 .tabCount {
@@ -130,13 +130,13 @@
 }
 
 .pillPublished {
-  background: #dde3c7;
-  color: #46521f;
+  background: #d9dfe3;
+  color: #3f4b56;
 }
 
 .pillDraft {
-  background: #ece3d3;
-  color: #7a6a4c;
+  background: #e2e2e0;
+  color: #524f4a;
 }
 
 .metaCell {
@@ -182,8 +182,8 @@
 }
 
 .iconBtnDanger:hover {
-  background: #f6e0dc;
-  color: #ae2f22;
+  background: #f3dfe3;
+  color: #a32a3c;
 }
 
 .empty {

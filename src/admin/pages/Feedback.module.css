@@ -23,8 +23,8 @@
 }
 
 .replyCard {
-  background: #fdf6ee;
-  border: 1.5px dashed #d8a25a;
+  background: #f5f5f4;
+  border: 1.5px dashed #b9b6b0;
   border-radius: 10px;
   padding: 18px 20px;
   margin-bottom: 22px;
@@ -50,7 +50,7 @@
 
 .replyTextarea:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .replyBtn {
@@ -64,7 +64,7 @@
 }
 
 .replyBtn:hover:not(:disabled) {
-  background: #53331f;
+  background: #3f4b56;
 }
 
 .replyBtn:disabled {
@@ -85,8 +85,8 @@
 }
 
 .itemFlagged {
-  border-color: #d8a25a;
-  background: #fefaf3;
+  border-color: #b9b6b0;
+  background: #f7f7f6;
 }
 
 .itemHidden {
@@ -110,7 +110,7 @@
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  background: #75492e;
+  background: #5b6b78;
   color: #fff;
   padding: 2px 7px;
   border-radius: 10px;
@@ -132,8 +132,8 @@
 .flagTag {
   font-size: 10.5px;
   font-weight: 700;
-  color: #8a5a1e;
-  background: #f4e3b8;
+  color: #524f4a;
+  background: #e2e2e0;
   padding: 2px 8px;
   border-radius: 10px;
 }
@@ -142,7 +142,7 @@
   font-size: 10.5px;
   font-weight: 700;
   color: #5a5040;
-  background: #ece3d3;
+  background: #e2e2e0;
   padding: 2px 8px;
   border-radius: 10px;
 }
@@ -174,11 +174,11 @@
 }
 
 .actionBtnDanger {
-  color: #ae2f22;
+  color: #a32a3c;
 }
 
 .actionBtnDanger:hover {
-  background: #f6e0dc;
+  background: #f3dfe3;
 }
 
 .empty {

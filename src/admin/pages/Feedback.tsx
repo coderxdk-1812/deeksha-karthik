@@ -105,7 +105,7 @@ export function Feedback() {
       </div>
 
       <div className={styles.replyCard}>
-        <strong style={{ fontSize: 13, color: "#8a5a1e" }}>Reply as the maker</strong>
+        <strong style={{ fontSize: 13, color: "#524f4a" }}>Reply as the maker</strong>
         <div className={styles.replyRow}>
           <select className={styles.select} value={replyProject} onChange={(e) => setReplyProject(e.target.value)}>
             {projects.map((p) => (

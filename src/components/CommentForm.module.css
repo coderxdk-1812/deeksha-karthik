@@ -53,7 +53,7 @@
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: var(--brown);
+  border-color: var(--slate);
 }
 
 .textarea {
@@ -77,7 +77,7 @@
 }
 
 .submitBtn {
-  background: var(--brown);
+  background: var(--slate);
   color: var(--paper-white);
   font-weight: 700;
   font-size: 14.5px;
@@ -86,7 +86,7 @@
 }
 
 .submitBtn:hover {
-  background: var(--brown-deep);
+  background: var(--slate-deep);
 }
 
 .submitBtn:disabled {
@@ -97,10 +97,10 @@
 .errorBox {
   margin-top: 12px;
   padding: 12px 14px;
-  background: var(--butter-tint);
-  border: 1.5px solid var(--butter-deep);
+  background: var(--taupe-tint);
+  border: 1.5px solid var(--taupe-deep);
   border-radius: var(--radius-sm);
-  color: var(--butter-deep);
+  color: var(--taupe-deep);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -108,9 +108,9 @@
 .successBox {
   margin-top: 12px;
   padding: 12px 14px;
-  background: var(--green-tint);
-  border: 1.5px solid var(--green-deep);
+  background: var(--slate-tint);
+  border: 1.5px solid var(--slate-deep);
   border-radius: var(--radius-sm);
-  color: var(--green-deep);
+  color: var(--slate-deep);
   font-size: 14px;
 }

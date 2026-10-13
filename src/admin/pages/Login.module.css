@@ -30,7 +30,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #75492e;
+  background: #5b6b78;
 }
 
 .title {
@@ -61,7 +61,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .submitBtn {
@@ -75,7 +75,7 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: #53331f;
+  background: #3f4b56;
 }
 
 .submitBtn:disabled {
@@ -85,9 +85,9 @@
 .error {
   margin-top: 14px;
   padding: 10px 12px;
-  background: #f6e0dc;
-  border: 1px solid #ae2f22;
-  color: #ae2f22;
+  background: #f3dfe3;
+  border: 1px solid #a32a3c;
+  color: #a32a3c;
   border-radius: 6px;
   font-size: 13.5px;
 }

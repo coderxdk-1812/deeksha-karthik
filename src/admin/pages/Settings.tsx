@@ -116,7 +116,7 @@ export function Settings() {
               autoComplete="new-password"
             />
           </div>
-          {passwordError && <p style={{ color: "#ae2f22", fontSize: 13, marginBottom: 12 }}>{passwordError}</p>}
+          {passwordError && <p style={{ color: "#a32a3c", fontSize: 13, marginBottom: 12 }}>{passwordError}</p>}
           <button type="submit" className={`btn-reset ${styles.saveBtn}`} disabled={changing || !currentPassword || !newPassword}>
             {changing ? "Changing…" : "Change password"}
           </button>

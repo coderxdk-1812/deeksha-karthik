@@ -14,23 +14,16 @@
   --line: rgba(36, 26, 16, 0.16);
   --line-strong: rgba(36, 26, 16, 0.34);
 
-  /* Chestnut accent (replaces the old terracotta): a mid-tone brown with its
-     own identity, distinct from the ink text colours. */
-  --brown: #75492e;
-  --brown-deep: #53331f;
-  --brown-tint: #eadac5;
+  /* Two cool accents, alternated across projects and UI: a dusty slate and
+     a near-neutral taupe-gray. Each has a deep shade (text, hover) and a
+     pale tint (backgrounds). Text on the base shades clears WCAG AA. */
+  --slate: #5b6b78;
+  --slate-deep: #3f4b56;
+  --slate-tint: #d9dfe3;
 
-  --butter: #dfa438;
-  --butter-deep: #9c6f1f;
-  --butter-tint: #f4e3b8;
-
-  --green: #5d6e42;
-  --green-deep: #46521f;
-  --green-tint: #dde3c7;
-
-  --blue: #4c6e78;
-  --blue-deep: #33505a;
-  --blue-tint: #d3e0e0;
+  --taupe: #716e68;
+  --taupe-deep: #524f4a;
+  --taupe-tint: #e2e2e0;
 
   --focus-ring: var(--ink);
 

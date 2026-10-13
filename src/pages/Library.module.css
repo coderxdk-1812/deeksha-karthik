@@ -34,7 +34,7 @@
 }
 
 .searchWrap:focus-within {
-  border-color: var(--brown);
+  border-color: var(--slate);
 }
 
 .searchWrap svg {
@@ -114,7 +114,7 @@
   margin-top: 16px;
   display: inline-block;
   font-weight: 700;
-  color: var(--brown-deep);
+  color: var(--slate-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

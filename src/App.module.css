@@ -19,7 +19,7 @@
 .retryBtn {
   font-weight: 700;
   font-size: 14px;
-  color: var(--brown-deep);
+  color: var(--slate-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

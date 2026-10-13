@@ -58,7 +58,7 @@
 
 .confirmInput:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .actions {
@@ -87,11 +87,11 @@
   font-weight: 700;
   font-size: 14px;
   color: #fff;
-  background: #ae2f22;
+  background: #a32a3c;
 }
 
 .dangerBtn:hover:not(:disabled) {
-  background: #8f2519;
+  background: #86202f;
 }
 
 .dangerBtn:disabled {

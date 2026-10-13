@@ -16,6 +16,10 @@
   flex-shrink: 0;
 }
 
-.live { background: var(--green); }
-.in-progress { background: var(--butter); }
-.resting { background: var(--ink-faint); }
+.live { background: var(--slate); }
+.in-progress { background: var(--taupe); }
+/* Resting is a hollow ring so it stays distinct from the two filled dots. */
+.resting {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--taupe);
+}

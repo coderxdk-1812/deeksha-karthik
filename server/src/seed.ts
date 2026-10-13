@@ -26,35 +26,11 @@ interface SeedProject {
   whyIMadeIt?: string;
   whoItsFor?: string;
   whatILearned?: string;
-  accent: "brown" | "butter" | "green" | "blue";
+  accent: "slate" | "taupe";
   screenshots: SeedScreenshot[];
 }
 
 const seedProjects: SeedProject[] = [
-  {
-    name: "ExamBuoy",
-    slug: "exambuoy",
-    shortDescription:
-      "A calm countdown and study planner for exam season, built so revision stops feeling like drowning.",
-    description:
-      "ExamBuoy turns a syllabus and a set of exam dates into a day-by-day plan that actually accounts for how much time is left. It was built during the run-up to IB finals, when every other planner either assumed unlimited time or didn't understand subject weighting.",
-    url: "https://example.com/exambuoy",
-    category: "Study tools",
-    status: "live",
-    madeWith: ["Flutter", "Dart", "Firebase"],
-    whyIMadeIt:
-      "I kept rebuilding the same spreadsheet every term. I wanted something that would just tell me what to study today, not a wall of empty checkboxes.",
-    whoItsFor: "Students staring down multiple exams with a fixed number of days to prepare.",
-    whatILearned:
-      "State management across a multi-week planning horizon is trickier than it looks — a lot of the work went into handling missed days gracefully instead of just guilt-tripping the user.",
-    accent: "brown",
-    screenshots: [
-      { caption: "The daily plan, showing today's three focus subjects" },
-      { caption: "Adding an exam — subject weighting and confidence sliders" },
-      { caption: "Week view with catch-up days highlighted" },
-      { caption: "End-of-day check-in prompt" },
-    ],
-  },
   {
     name: "ClosetAI",
     slug: "closetai",
@@ -67,7 +43,7 @@ const seedProjects: SeedProject[] = [
     madeWith: ["React Native", "Expo", "Supabase"],
     whoItsFor: "People who own more clothes than their mental model of their closet can handle.",
     whatILearned: "Background removal on phone-quality photos is a much harder problem than it sounds.",
-    accent: "butter",
+    accent: "taupe",
     screenshots: [
       { caption: "The catalog view, sorted by category" },
       { caption: "Today's suggested outfit, with weather context" },
@@ -86,7 +62,7 @@ const seedProjects: SeedProject[] = [
     madeWith: ["Python", "FastAPI", "React", "scikit-learn"],
     whyIMadeIt: "Post-match analysis online is either pundit opinion or raw data with no story attached.",
     whoItsFor: "Football nerds who want the numbers to explain themselves.",
-    accent: "green",
+    accent: "slate",
     screenshots: [
       { caption: "Match timeline with tactical shift markers" },
       { caption: "Passing network comparison, first half vs second" },
@@ -107,7 +83,7 @@ const seedProjects: SeedProject[] = [
     whyIMadeIt: "Folders make me file ideas away and forget them. A map makes me want to revisit them.",
     whoItsFor: "People who think in loosely connected fragments rather than neat outlines.",
     whatILearned: "Tauri's IPC boundary forces you to actually think about what should live in Rust vs. the frontend.",
-    accent: "green",
+    accent: "taupe",
     screenshots: [
       { caption: "The garden map, zoomed out" },
       { caption: "Editing a note with linked references in the sidebar" },
@@ -127,7 +103,7 @@ const seedProjects: SeedProject[] = [
     whyIMadeIt: "I had a folder of PDFs and a deadline, and no patience left for skimming.",
     whoItsFor: "Anyone who needs answers from a pile of documents, not a summary of all of them.",
     whatILearned: "Chunking strategy matters more than model choice for answer quality.",
-    accent: "blue",
+    accent: "slate",
     screenshots: [
       { caption: "Uploading a batch of PDFs" },
       { caption: "Asking a question, with the cited source shown alongside" },
@@ -146,7 +122,7 @@ const seedProjects: SeedProject[] = [
     status: "live",
     madeWith: ["HTML", "CSS", "JavaScript"],
     whyIMadeIt: "Not everything has to be useful. Sometimes you just want to make something move nicely.",
-    accent: "butter",
+    accent: "taupe",
     screenshots: [{ caption: "Butterflies mid-flutter" }, { caption: "A flower blooming on hover" }],
   },
   {
@@ -160,7 +136,7 @@ const seedProjects: SeedProject[] = [
     status: "resting",
     madeWith: ["HTML", "CSS", "JavaScript"],
     whyIMadeIt: "Wanted to see if a whole game could live in one HTML file. It mostly can.",
-    accent: "brown",
+    accent: "slate",
     screenshots: [
       { caption: "The island map, start of the hunt" },
       { caption: "A clue revealed after a correct guess" },
@@ -170,20 +146,6 @@ const seedProjects: SeedProject[] = [
 ];
 
 const seedComments = [
-  {
-    projectSlug: "exambuoy",
-    authorName: "Priya",
-    body: "The daily plan view is great, but on my phone the subject cards get cut off on the right edge — had to scroll sideways to see the confidence slider.",
-    createdAt: "2026-06-02T14:20:00.000Z",
-    helpfulCount: 4,
-  },
-  {
-    projectSlug: "exambuoy",
-    authorName: "Anonymous",
-    body: "Took me a second to realize I could drag exams to reorder them — maybe a small hint the first time would help.",
-    createdAt: "2026-06-10T09:05:00.000Z",
-    helpfulCount: 2,
-  },
   {
     projectSlug: "digital-garden",
     authorName: "Anonymous",

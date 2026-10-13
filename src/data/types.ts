@@ -29,7 +29,7 @@ export interface Project {
   whoItsFor?: string;
   whatILearned?: string;
   /** Accent colour for this project's card/detail chrome — one of the palette roles. */
-  accent: "brown" | "butter" | "green" | "blue";
+  accent: "slate" | "taupe";
   /** Catalog number, e.g. "004" — shown as a small stamp. Derived at build time if omitted. */
   catalogNumber?: string;
 }

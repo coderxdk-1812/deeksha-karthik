@@ -108,7 +108,7 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--brown);
+  background: var(--slate);
   color: var(--paper-white);
   font-weight: 700;
   font-size: 15.5px;
@@ -119,7 +119,7 @@
 }
 
 .openBtn:hover {
-  background: var(--brown-deep);
+  background: var(--slate-deep);
 }
 
 .openHint {

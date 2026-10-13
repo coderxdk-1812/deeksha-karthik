@@ -18,7 +18,7 @@ export interface AdminProject {
   category: string;
   status: "live" | "in-progress" | "resting";
   publishState: PublishState;
-  accent: "brown" | "butter" | "green" | "blue";
+  accent: "slate" | "taupe";
   madeWith: string[];
   whyIMadeIt: string;
   whoItsFor: string;

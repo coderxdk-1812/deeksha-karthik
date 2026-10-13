@@ -6,12 +6,12 @@
   --a-text: #241a10;
   --a-text-soft: #5a5040;
   --a-text-faint: #93897a;
-  --a-accent: #75492e;
-  --a-accent-deep: #53331f;
-  --a-danger: #ae2f22;
-  --a-danger-tint: #f6e0dc;
-  --a-success: #46521f;
-  --a-success-tint: #dde3c7;
+  --a-accent: #5b6b78;
+  --a-accent-deep: #3f4b56;
+  --a-danger: #a32a3c;
+  --a-danger-tint: #f3dfe3;
+  --a-success: #3f4b56;
+  --a-success-tint: #d9dfe3;
 
   min-height: 100vh;
   display: grid;
@@ -74,7 +74,7 @@
 }
 
 .navLinkActive {
-  background: #f1e4da;
+  background: #e3e8eb;
   color: var(--a-accent-deep);
 }
 

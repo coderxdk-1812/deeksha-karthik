@@ -10,10 +10,8 @@ import { isAuthError, useAdminAuth } from "../AdminAuthContext";
 import styles from "./ProjectForm.module.css";
 
 const ACCENTS: { value: AdminProject["accent"]; hex: string }[] = [
-  { value: "brown", hex: "#75492e" },
-  { value: "butter", hex: "#dfa438" },
-  { value: "green", hex: "#5d6e42" },
-  { value: "blue", hex: "#4c6e78" },
+  { value: "slate", hex: "#5b6b78" },
+  { value: "taupe", hex: "#716e68" },
 ];
 
 interface FormFields {

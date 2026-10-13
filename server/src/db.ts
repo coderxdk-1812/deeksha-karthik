@@ -69,7 +69,7 @@ db.exec(`
     status TEXT NOT NULL DEFAULT 'in-progress',
     publish_state TEXT NOT NULL DEFAULT 'draft',
     icon_path TEXT,
-    accent TEXT NOT NULL DEFAULT 'brown',
+    accent TEXT NOT NULL DEFAULT 'slate',
     made_with TEXT NOT NULL DEFAULT '[]',
     why_i_made_it TEXT,
     who_its_for TEXT,

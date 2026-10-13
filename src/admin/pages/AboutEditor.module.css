@@ -19,7 +19,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #75492e;
+  background: #5b6b78;
 }
 
 .saveBtn {
@@ -32,7 +32,7 @@
 }
 
 .saveBtn:hover:not(:disabled) {
-  background: #53331f;
+  background: #3f4b56;
 }
 
 .saveBtn:disabled {
@@ -84,7 +84,7 @@
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: #75492e;
+  border-color: #5b6b78;
 }
 
 .textarea {
@@ -109,12 +109,12 @@
   width: 34px;
   height: 34px;
   border-radius: 6px;
-  color: #ae2f22;
+  color: #a32a3c;
   border: 1.5px solid #e3ddcf;
 }
 
 .removeBtn:hover {
-  background: #f6e0dc;
+  background: #f3dfe3;
 }
 
 .addBtn {
@@ -127,8 +127,8 @@
 }
 
 .addBtn:hover {
-  border-color: #75492e;
-  color: #75492e;
+  border-color: #5b6b78;
+  color: #5b6b78;
 }
 
 .linkRow {

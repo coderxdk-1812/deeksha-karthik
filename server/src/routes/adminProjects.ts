@@ -8,7 +8,7 @@ import { upload, saveOptimizedImage, deleteStoredImage } from "../lib/images.js"
 
 export const adminProjectsRouter = Router();
 
-const ACCENTS = new Set(["brown", "butter", "green", "blue"]);
+const ACCENTS = new Set(["slate", "taupe"]);
 const STATUSES = new Set(["live", "in-progress", "resting"]);
 
 function getRow(id: string): ProjectRow | undefined {
@@ -84,7 +84,7 @@ adminProjectsRouter.post("/", (req, res) => {
       id, slug, name, short_description, description, url, category, status,
       publish_state, icon_path, accent, made_with, why_i_made_it, who_its_for,
       what_i_learned, admin_notes, sort_order, created_at, updated_at
-    ) VALUES (?, ?, ?, '', '', '', '', 'in-progress', 'draft', NULL, 'brown', '[]', NULL, NULL, NULL, '', ?, ?, ?)`,
+    ) VALUES (?, ?, ?, '', '', '', '', 'in-progress', 'draft', NULL, 'slate', '[]', NULL, NULL, NULL, '', ?, ?, ?)`,
   ).run(id, slug, name, maxOrder + 1, now, now);
 
   res.status(201).json({ project: toAdminProject(getRow(id)!) });

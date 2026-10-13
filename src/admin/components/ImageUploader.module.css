@@ -64,11 +64,11 @@
   font-weight: 700;
   padding: 7px 12px;
   border-radius: 6px;
-  color: #ae2f22;
+  color: #a32a3c;
 }
 
 .removeBtn:hover {
-  background: #f6e0dc;
+  background: #f3dfe3;
 }
 
 .hint {
@@ -78,5 +78,5 @@
 
 .error {
   font-size: 11.5px;
-  color: #ae2f22;
+  color: #a32a3c;
 }
