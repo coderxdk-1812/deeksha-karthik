@@ -9,7 +9,7 @@ export function About() {
   return (
     <div className="container">
       <div className={styles.wrap}>
-        <div className={styles.sticky}>
+        <div className={`${styles.sticky} ${profile.photo ? styles.centered : ""}`}>
           {profile.photo && (
             <div className={styles.photoWrap}>
               <img src={resolveAssetUrl(profile.photo)} alt={`Photo of ${profile.name}`} />

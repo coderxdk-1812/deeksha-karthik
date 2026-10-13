@@ -1,12 +1,27 @@
 .wrap {
   padding: 52px 0 90px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 52px;
 }
 
 .sticky {
   align-self: start;
+}
+
+/* With a photo, the whole identity block (photo, label, name, pill, links)
+   is centred in its column so the photo isn't hugging the left edge. */
+.centered {
+  text-align: center;
+}
+
+.centered .photoWrap {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered .linkList {
+  align-items: center;
 }
 
 /* Pin the left column while the text scrolls, but only when the window is
@@ -20,7 +35,7 @@
 }
 
 .photoWrap {
-  width: min(100%, 320px);
+  width: min(100%, 390px);
   aspect-ratio: 1 / 1;
   margin-bottom: 26px;
   border-radius: var(--radius-md);
@@ -118,6 +133,6 @@
   }
   /* Stacked on a phone the photo would otherwise fill the whole screen width. */
   .photoWrap {
-    width: min(70%, 280px);
+    width: min(85%, 300px);
   }
 }
