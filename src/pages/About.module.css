@@ -20,7 +20,7 @@
 }
 
 .photoWrap {
-  width: min(100%, 470px);
+  width: min(100%, 320px);
   aspect-ratio: 1 / 1;
   margin-bottom: 26px;
   border-radius: var(--radius-md);
@@ -115,5 +115,9 @@
   .wrap {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  /* Stacked on a phone the photo would otherwise fill the whole screen width. */
+  .photoWrap {
+    width: min(70%, 280px);
   }
 }
