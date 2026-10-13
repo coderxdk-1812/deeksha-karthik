@@ -56,14 +56,33 @@ export async function saveOptimizedImage(buffer: Buffer, kind: ImageKind): Promi
   const filename = `${randomUUID()}.webp`;
   const destPath = path.join(UPLOADS_ROOT, subdir, filename);
 
-  let pipeline = sharp(buffer).rotate(); // auto-orient from EXIF
-  pipeline = pipeline.resize({
-    width: preset.width,
-    height: preset.height,
-    fit: preset.fit,
-    withoutEnlargement: true,
-  });
-  await pipeline.webp({ quality: preset.quality }).toFile(destPath);
+  const oriented = await sharp(buffer).rotate().toBuffer(); // bake in EXIF orientation first
+  let width = preset.width;
+  let height = preset.height;
+
+  if (height !== undefined) {
+    // Icons and the profile photo are always square. Shrink the target to the
+    // source's shorter side instead of using `withoutEnlargement`, which
+    // leaves a small non-square upload non-square (and a stretched icon).
+    const meta = await sharp(oriented).metadata();
+    const side = Math.min(preset.width, height, meta.width ?? preset.width, meta.height ?? height);
+    width = side;
+    height = side;
+  }
+
+  await sharp(oriented)
+    .resize({
+      width,
+      height,
+      fit: preset.fit,
+      // For the profile photo, crop around the most prominent subject (skin
+      // tones, contrast, saturation) rather than blindly around the middle,
+      // so a person who isn't dead-centre in the original isn't cut off.
+      position: kind === "profile" ? sharp.strategy.attention : undefined,
+      withoutEnlargement: true,
+    })
+    .webp({ quality: preset.quality })
+    .toFile(destPath);
 
   return `/uploads/${subdir}/${filename}`;
 }
