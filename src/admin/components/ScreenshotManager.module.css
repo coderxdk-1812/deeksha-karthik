@@ -18,8 +18,8 @@
 }
 
 .tile.dragOver {
-  border-color: #bd5433;
-  box-shadow: 0 0 0 2px #f0d7c4;
+  border-color: #75492e;
+  box-shadow: 0 0 0 2px #eadac5;
 }
 
 .thumb {
@@ -82,7 +82,7 @@
 
 .captionInput:focus {
   outline: none;
-  border-color: #bd5433;
+  border-color: #75492e;
 }
 
 .tileActions {
@@ -127,8 +127,8 @@
 }
 
 .addTile:hover:not(:disabled) {
-  border-color: #bd5433;
-  color: #bd5433;
+  border-color: #75492e;
+  color: #75492e;
 }
 
 .addTile:disabled {

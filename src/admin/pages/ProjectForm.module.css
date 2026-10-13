@@ -33,7 +33,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #bd5433;
+  background: #75492e;
 }
 
 .headActions {
@@ -69,7 +69,7 @@
 }
 
 .saveBtn:hover:not(:disabled) {
-  background: #92401f;
+  background: #53331f;
 }
 
 .saveBtn:disabled {
@@ -136,7 +136,7 @@
 .textarea:focus,
 .select:focus {
   outline: none;
-  border-color: #bd5433;
+  border-color: #75492e;
 }
 
 .textarea {
@@ -202,5 +202,10 @@
   }
   .row2 {
     grid-template-columns: 1fr;
+  }
+  /* Stacked, the second field in a row is no longer the end of anything,
+     so it needs the same gap as every other field. */
+  .row2 > .field:last-child {
+    margin-bottom: 16px;
   }
 }

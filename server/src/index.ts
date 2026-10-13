@@ -7,6 +7,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import "./db.js";
 import { runSeedIfEmpty } from "./seed.js";
+import { runMigrations } from "./migrations.js";
 import { pruneExpiredSessions, requireAdmin } from "./lib/auth.js";
 import { UPLOADS_ROOT } from "./lib/images.js";
 import { publicRouter } from "./routes/public.js";
@@ -19,6 +20,7 @@ import { adminMiscRouter } from "./routes/adminMisc.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 runSeedIfEmpty();
+runMigrations();
 pruneExpiredSessions();
 setInterval(pruneExpiredSessions, 1000 * 60 * 60).unref();
 

@@ -14,9 +14,11 @@
   --line: rgba(36, 26, 16, 0.16);
   --line-strong: rgba(36, 26, 16, 0.34);
 
-  --terracotta: #bd5433;
-  --terracotta-deep: #92401f;
-  --terracotta-tint: #f0d7c4;
+  /* Chestnut accent (replaces the old terracotta): a mid-tone brown with its
+     own identity, distinct from the ink text colours. */
+  --brown: #75492e;
+  --brown-deep: #53331f;
+  --brown-tint: #eadac5;
 
   --butter: #dfa438;
   --butter-deep: #9c6f1f;
@@ -30,7 +32,7 @@
   --blue-deep: #33505a;
   --blue-tint: #d3e0e0;
 
-  --focus-ring: #92401f;
+  --focus-ring: var(--ink);
 
   --font-display: "Fraunces", "Iowan Old Style", ui-serif, Georgia, serif;
   --font-body: "Karla", "Segoe UI", ui-sans-serif, system-ui, sans-serif;

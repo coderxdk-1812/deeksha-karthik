@@ -14,10 +14,11 @@ export interface AdminProject {
   shortDescription: string;
   description: string;
   url: string;
+  githubUrl: string;
   category: string;
   status: "live" | "in-progress" | "resting";
   publishState: PublishState;
-  accent: "terracotta" | "butter" | "green" | "blue";
+  accent: "brown" | "butter" | "green" | "blue";
   madeWith: string[];
   whyIMadeIt: string;
   whoItsFor: string;

@@ -8,7 +8,7 @@ import { upload, saveOptimizedImage, deleteStoredImage } from "../lib/images.js"
 
 export const adminProjectsRouter = Router();
 
-const ACCENTS = new Set(["terracotta", "butter", "green", "blue"]);
+const ACCENTS = new Set(["brown", "butter", "green", "blue"]);
 const STATUSES = new Set(["live", "in-progress", "resting"]);
 
 function getRow(id: string): ProjectRow | undefined {
@@ -25,6 +25,23 @@ function sanitizeText(value: unknown, maxLen = 5000): string {
 function sanitizeOptionalText(value: unknown, maxLen = 3000): string | null {
   const text = sanitizeText(value, maxLen);
   return text.length > 0 ? text : null;
+}
+
+/**
+ * URLs end up as `href`s on the public site, so only http(s) is allowed
+ * (no `javascript:` etc). A bare domain gets https:// added; anything
+ * unusable becomes an empty string.
+ */
+function sanitizeUrl(value: unknown): string {
+  const text = sanitizeText(value, 500);
+  if (!text) return "";
+  const withScheme = /^[a-z][a-z0-9+.-]*:/i.test(text) ? text : `https://${text}`;
+  try {
+    const parsed = new URL(withScheme);
+    return parsed.protocol === "http:" || parsed.protocol === "https:" ? parsed.toString() : "";
+  } catch {
+    return "";
+  }
 }
 
 function sanitizeStringArray(value: unknown, maxItems = 20): string[] {
@@ -67,7 +84,7 @@ adminProjectsRouter.post("/", (req, res) => {
       id, slug, name, short_description, description, url, category, status,
       publish_state, icon_path, accent, made_with, why_i_made_it, who_its_for,
       what_i_learned, admin_notes, sort_order, created_at, updated_at
-    ) VALUES (?, ?, ?, '', '', '', '', 'in-progress', 'draft', NULL, 'terracotta', '[]', NULL, NULL, NULL, '', ?, ?, ?)`,
+    ) VALUES (?, ?, ?, '', '', '', '', 'in-progress', 'draft', NULL, 'brown', '[]', NULL, NULL, NULL, '', ?, ?, ?)`,
   ).run(id, slug, name, maxOrder + 1, now, now);
 
   res.status(201).json({ project: toAdminProject(getRow(id)!) });
@@ -89,7 +106,7 @@ adminProjectsRouter.put("/:id", (req, res) => {
 
   db.prepare(
     `UPDATE projects SET
-      name = ?, short_description = ?, description = ?, url = ?, category = ?,
+      name = ?, short_description = ?, description = ?, url = ?, github_url = ?, category = ?,
       status = ?, accent = ?, made_with = ?, why_i_made_it = ?, who_its_for = ?,
       what_i_learned = ?, admin_notes = ?, updated_at = ?
      WHERE id = ?`,
@@ -97,7 +114,8 @@ adminProjectsRouter.put("/:id", (req, res) => {
     name,
     sanitizeText(body.shortDescription, 300),
     sanitizeText(body.description, 5000),
-    sanitizeText(body.url, 500),
+    sanitizeUrl(body.url),
+    sanitizeUrl(body.githubUrl) || null,
     sanitizeText(body.category, 80),
     status,
     accent,
@@ -156,10 +174,10 @@ adminProjectsRouter.post("/:id/duplicate", (req, res) => {
 
   db.prepare(
     `INSERT INTO projects (
-      id, slug, name, short_description, description, url, category, status,
+      id, slug, name, short_description, description, url, github_url, category, status,
       publish_state, icon_path, accent, made_with, why_i_made_it, who_its_for,
       what_i_learned, admin_notes, sort_order, created_at, updated_at
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'draft', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
   ).run(
     newId,
     newSlug,
@@ -167,6 +185,7 @@ adminProjectsRouter.post("/:id/duplicate", (req, res) => {
     existing.short_description,
     existing.description,
     existing.url,
+    existing.github_url,
     existing.category,
     existing.status,
     existing.icon_path,

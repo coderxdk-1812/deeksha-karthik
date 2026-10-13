@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSiteData } from "../context/DataContext";
+import logoMark from "../assets/logo-mark.png";
 import styles from "./Nav.module.css";
 
 const NAV_ITEMS = [
@@ -19,9 +20,7 @@ export function Nav() {
       <div className="container">
         <div className={styles.bar}>
           <NavLink to="/" className={styles.mark} aria-label={name ? `${name} — home` : "Home"}>
-            <span className={styles.markStamp} aria-hidden="true">
-              {name.slice(0, 1) || "·"}
-            </span>
+            <img className={styles.markImg} src={logoMark} alt="" width={34} height={34} />
             things I made
           </NavLink>
 

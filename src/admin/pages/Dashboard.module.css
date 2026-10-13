@@ -26,7 +26,7 @@
 }
 
 .addBtn:hover {
-  background: #92401f;
+  background: #53331f;
 }
 
 .tabs {
@@ -51,7 +51,7 @@
 
 .tabActive {
   color: #241a10;
-  border-bottom-color: #bd5433;
+  border-bottom-color: #75492e;
 }
 
 .tabCount {

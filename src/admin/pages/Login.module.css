@@ -30,7 +30,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #bd5433;
+  background: #75492e;
 }
 
 .title {
@@ -61,7 +61,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #bd5433;
+  border-color: #75492e;
 }
 
 .submitBtn {
@@ -75,7 +75,7 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: #92401f;
+  background: #53331f;
 }
 
 .submitBtn:disabled {

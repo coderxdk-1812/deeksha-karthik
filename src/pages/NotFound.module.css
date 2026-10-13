@@ -27,7 +27,7 @@
 .link {
   display: inline-block;
   font-weight: 700;
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

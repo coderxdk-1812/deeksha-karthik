@@ -64,11 +64,12 @@ db.exec(`
     short_description TEXT NOT NULL DEFAULT '',
     description TEXT NOT NULL DEFAULT '',
     url TEXT NOT NULL DEFAULT '',
+    github_url TEXT,
     category TEXT NOT NULL DEFAULT '',
     status TEXT NOT NULL DEFAULT 'in-progress',
     publish_state TEXT NOT NULL DEFAULT 'draft',
     icon_path TEXT,
-    accent TEXT NOT NULL DEFAULT 'terracotta',
+    accent TEXT NOT NULL DEFAULT 'brown',
     made_with TEXT NOT NULL DEFAULT '[]',
     why_i_made_it TEXT,
     who_its_for TEXT,
@@ -101,7 +102,23 @@ db.exec(`
     created_at TEXT NOT NULL
   );
 
+  CREATE TABLE IF NOT EXISTS schema_migrations (
+    id TEXT PRIMARY KEY,
+    applied_at TEXT NOT NULL
+  );
+
   CREATE INDEX IF NOT EXISTS idx_comments_slug ON comments(project_slug);
   CREATE INDEX IF NOT EXISTS idx_projects_slug ON projects(slug);
   CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires_at);
 `);
+
+// CREATE TABLE IF NOT EXISTS won't add columns to a table that already
+// exists, so columns introduced after the first release are added here.
+function ensureColumn(table: string, column: string, definition: string): void {
+  const columns = db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
+  if (!columns.some((c) => c.name === column)) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  }
+}
+
+ensureColumn("projects", "github_url", "TEXT");

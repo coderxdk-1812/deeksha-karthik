@@ -100,7 +100,7 @@ Two services, deployed from this same repo:
 - Root directory: `server`
 - Build command: `npm install && npm run build`
 - Start command: `npm start`
-- Add a **persistent disk**, e.g. mounted at `/data`
+- Add a **persistent disk**, e.g. mounted at `/data` (paid plans only — see "Without a persistent disk" below for the free tier)
 - Environment variables:
   | Variable | Value |
   |---|---|
@@ -124,6 +124,36 @@ Two services, deployed from this same repo:
 Deploy the backend first so you have its URL for `ALLOWED_ORIGIN`/`VITE_API_URL`, or
 deploy both once and circle back to fill in each other's URLs — Render lets you edit
 env vars and redeploy after the fact.
+
+## Without a persistent disk (Render free tier)
+
+The SQLite file and `uploads/` live on the web service's own filesystem, which is
+wiped on every restart/redeploy when there's no disk. Practically:
+
+- The database is rebuilt on every boot: `seed.ts` creates the placeholder projects,
+  then `migrations.ts` applies the real content on top.
+- **Anything typed into the live admin panel is lost on the next restart** — projects,
+  About Me, comments, uploaded screenshots/photo, and a changed admin password
+  (it falls back to the `ADMIN_PASSWORD` env var).
+- So content that has to stick belongs in **`server/src/migrations.ts`** (Kedayam,
+  Zenith and Revisebot live there; SafeSurf is retired there), committed and pushed.
+  Migrations are idempotent and tracked in `schema_migrations`, so they also apply
+  exactly once to an existing database.
+- Image uploads can't be committed that way. Until there's a disk (or external
+  storage — see the swap points in "Architecture"), real screenshots/icons won't
+  survive a restart, and projects fall back to the generated placeholder art.
+
+## Branding
+
+`branding/site-logo.png` is the source logo. `node scripts/make-brand-assets.mjs`
+regenerates the favicon set (`public/favicon.ico`, 16/32px PNGs, apple-touch icon)
+and the transparent nav mark (`src/assets/logo-mark.png`) from it. The script reuses
+`sharp` from `server/node_modules`, so run `npm run install:server` first.
+
+Accent colours are `brown`, `butter`, `green`, and `blue`. The brown is a chestnut
+(`--brown: #75492e`, with `--brown-deep` and `--brown-tint` companions in `src/index.css`)
+that replaced the original orange-red terracotta; it's mirrored in `src/lib/accent.ts`
+and the admin stylesheets, which hard-code their hexes.
 
 ## Data & security notes
 

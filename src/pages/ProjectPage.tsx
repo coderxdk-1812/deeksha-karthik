@@ -14,7 +14,7 @@ export function ProjectPage() {
       <div className="container" style={{ padding: "100px 0", textAlign: "center" }}>
         <h1 style={{ fontSize: 32, marginBottom: 14 }}>Couldn't find that project.</h1>
         <p style={{ color: "var(--ink-soft)", marginBottom: 20 }}>It might have moved, or the link is off.</p>
-        <Link to="/projects" style={{ color: "var(--terracotta-deep)", fontWeight: 700, textDecoration: "underline" }}>
+        <Link to="/projects" style={{ color: "var(--brown-deep)", fontWeight: 700, textDecoration: "underline" }}>
           Back to the collection →
         </Link>
       </div>

@@ -17,6 +17,8 @@ export interface Project {
   /** Longer paragraph(s) shown on the detail page. */
   description: string;
   url: string;
+  /** Source repository. Optional — the link only renders when present. */
+  githubUrl?: string;
   screenshots: Screenshot[];
   category: string;
   status: ProjectStatus;
@@ -27,7 +29,7 @@ export interface Project {
   whoItsFor?: string;
   whatILearned?: string;
   /** Accent colour for this project's card/detail chrome — one of the palette roles. */
-  accent: "terracotta" | "butter" | "green" | "blue";
+  accent: "brown" | "butter" | "green" | "blue";
   /** Catalog number, e.g. "004" — shown as a small stamp. Derived at build time if omitted. */
   catalogNumber?: string;
 }

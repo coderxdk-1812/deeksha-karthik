@@ -17,7 +17,7 @@
 .kicker {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
   letter-spacing: 0.04em;
   display: inline-block;
   margin-bottom: 14px;
@@ -29,7 +29,7 @@
   display: inline-block;
   width: 7px;
   height: 7px;
-  background: var(--terracotta);
+  background: var(--brown);
   border-radius: 50%;
   margin-right: 8px;
 }
@@ -40,7 +40,7 @@
 }
 
 .titleAccent {
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
   font-style: italic;
   font-weight: 500;
 }
@@ -75,7 +75,7 @@
 }
 
 .primaryBtn:hover {
-  background: var(--terracotta-deep);
+  background: var(--brown);
 }
 
 .secondaryLink {
@@ -204,8 +204,8 @@
 }
 
 .chip:hover {
-  border-color: var(--terracotta);
-  color: var(--terracotta-deep);
+  border-color: var(--brown);
+  color: var(--brown-deep);
 }
 
 /* ---- about excerpt ---- */
@@ -238,7 +238,7 @@
 }
 
 .aboutText a {
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;

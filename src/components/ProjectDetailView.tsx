@@ -50,6 +50,14 @@ export function ProjectDetailView({ project }: { project: Project }) {
             </svg>
           </a>
           <span className={styles.openHint}>opens in a new tab</span>
+          {project.githubUrl && (
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>
+              View source on GitHub
+              <svg width="12" height="12" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                <path d="M5 3h7v7M12 3L3 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          )}
         </div>
       </header>
 

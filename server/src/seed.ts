@@ -26,7 +26,7 @@ interface SeedProject {
   whyIMadeIt?: string;
   whoItsFor?: string;
   whatILearned?: string;
-  accent: "terracotta" | "butter" | "green" | "blue";
+  accent: "brown" | "butter" | "green" | "blue";
   screenshots: SeedScreenshot[];
 }
 
@@ -47,53 +47,12 @@ const seedProjects: SeedProject[] = [
     whoItsFor: "Students staring down multiple exams with a fixed number of days to prepare.",
     whatILearned:
       "State management across a multi-week planning horizon is trickier than it looks — a lot of the work went into handling missed days gracefully instead of just guilt-tripping the user.",
-    accent: "terracotta",
+    accent: "brown",
     screenshots: [
       { caption: "The daily plan, showing today's three focus subjects" },
       { caption: "Adding an exam — subject weighting and confidence sliders" },
       { caption: "Week view with catch-up days highlighted" },
       { caption: "End-of-day check-in prompt" },
-    ],
-  },
-  {
-    name: "RevisBot",
-    slug: "revisebot",
-    shortDescription:
-      "An AI study companion that quizzes you on your own notes instead of generic flashcard decks.",
-    description:
-      "RevisBot ingests whatever notes or textbook PDFs you already have and turns them into short, spaced quizzes. The second version rebuilt the whole ingestion pipeline after the first prototype turned out to only really work on tidy notes.",
-    url: "https://example.com/revisebot",
-    category: "AI tools",
-    status: "in-progress",
-    madeWith: ["Flutter", "Python", "OpenAI API"],
-    whyIMadeIt: "Making flashcards by hand takes longer than actually studying. This does the boring part for you.",
-    whoItsFor: "Anyone revising from their own messy notes rather than a polished course.",
-    whatILearned:
-      "Prompting a model to write good quiz questions from bad OCR output is its own skill — most of the v2 rebuild was cleanup logic, not the AI part.",
-    accent: "green",
-    screenshots: [
-      { caption: "Uploading a set of lecture notes" },
-      { caption: "A generated quiz, mid-session" },
-      { caption: "Reviewing questions you got wrong last time" },
-    ],
-  },
-  {
-    name: "SafeSurf",
-    slug: "safesurf",
-    shortDescription: "A lightweight Chrome extension that quietly flags risky pages before you land on them.",
-    description:
-      "SafeSurf sits in the toolbar and checks pages against a small set of heuristics as you browse, surfacing a gentle warning instead of a full block page. It was built to be unobtrusive — most of the design effort went into making the warning ignorable when you actually know what you're doing.",
-    url: "https://example.com/safesurf",
-    category: "Browser extension",
-    status: "live",
-    madeWith: ["JavaScript", "Chrome Extension APIs"],
-    whyIMadeIt: "Most safe-browsing tools are either invisible or so aggressive people just disable them.",
-    whoItsFor: "Anyone who wants a second opinion without a lecture.",
-    accent: "blue",
-    screenshots: [
-      { caption: "The popup, showing a page's safety summary" },
-      { caption: "An inline warning banner on a flagged page" },
-      { caption: "Settings — adjusting sensitivity" },
     ],
   },
   {
@@ -201,7 +160,7 @@ const seedProjects: SeedProject[] = [
     status: "resting",
     madeWith: ["HTML", "CSS", "JavaScript"],
     whyIMadeIt: "Wanted to see if a whole game could live in one HTML file. It mostly can.",
-    accent: "terracotta",
+    accent: "brown",
     screenshots: [
       { caption: "The island map, start of the hunt" },
       { caption: "A clue revealed after a correct guess" },
@@ -224,13 +183,6 @@ const seedComments = [
     body: "Took me a second to realize I could drag exams to reorder them — maybe a small hint the first time would help.",
     createdAt: "2026-06-10T09:05:00.000Z",
     helpfulCount: 2,
-  },
-  {
-    projectSlug: "safesurf",
-    authorName: "Marcus",
-    body: "Really like how unobtrusive the warning banner is. Only thing — I couldn't immediately tell how to dismiss it permanently for a site I trust.",
-    createdAt: "2026-05-14T11:40:00.000Z",
-    helpfulCount: 6,
   },
   {
     projectSlug: "digital-garden",

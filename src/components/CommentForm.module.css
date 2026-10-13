@@ -53,7 +53,7 @@
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: var(--terracotta);
+  border-color: var(--brown);
 }
 
 .textarea {
@@ -77,7 +77,7 @@
 }
 
 .submitBtn {
-  background: var(--terracotta);
+  background: var(--brown);
   color: var(--paper-white);
   font-weight: 700;
   font-size: 14.5px;
@@ -86,7 +86,7 @@
 }
 
 .submitBtn:hover {
-  background: var(--terracotta-deep);
+  background: var(--brown-deep);
 }
 
 .submitBtn:disabled {

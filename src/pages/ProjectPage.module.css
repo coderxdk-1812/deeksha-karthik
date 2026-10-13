@@ -108,7 +108,7 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--terracotta);
+  background: var(--brown);
   color: var(--paper-white);
   font-weight: 700;
   font-size: 15.5px;
@@ -119,13 +119,31 @@
 }
 
 .openBtn:hover {
-  background: var(--terracotta-deep);
+  background: var(--brown-deep);
 }
 
 .openHint {
   font-family: var(--font-mono);
   font-size: 11.5px;
   color: var(--ink-faint);
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+
+.sourceLink:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
 }
 
 .body {
@@ -168,6 +186,8 @@
   font-size: 16px;
   line-height: 1.65;
   color: var(--ink-soft);
+  /* Keep the line breaks typed into the admin textarea. */
+  white-space: pre-line;
 }
 
 .commentsWrap {

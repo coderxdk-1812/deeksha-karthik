@@ -19,7 +19,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #bd5433;
+  background: #75492e;
 }
 
 .saveBtn {
@@ -32,7 +32,7 @@
 }
 
 .saveBtn:hover:not(:disabled) {
-  background: #92401f;
+  background: #53331f;
 }
 
 .saveBtn:disabled {
@@ -84,7 +84,7 @@
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: #bd5433;
+  border-color: #75492e;
 }
 
 .textarea {
@@ -127,8 +127,8 @@
 }
 
 .addBtn:hover {
-  border-color: #bd5433;
-  color: #bd5433;
+  border-color: #75492e;
+  color: #75492e;
 }
 
 .linkRow {

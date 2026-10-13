@@ -11,7 +11,7 @@
 }
 
 .card:hover .name {
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
 }
 
 .card:hover .arrow {

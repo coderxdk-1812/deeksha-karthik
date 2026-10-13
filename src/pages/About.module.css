@@ -64,14 +64,14 @@
 .linkList a {
   font-weight: 700;
   font-size: 15px;
-  color: var(--terracotta-deep);
+  color: var(--brown-deep);
   text-decoration: none;
-  border-bottom: 1.5px solid var(--terracotta-tint);
+  border-bottom: 1.5px solid var(--brown-tint);
   width: fit-content;
 }
 
 .linkList a:hover {
-  border-bottom-color: var(--terracotta-deep);
+  border-bottom-color: var(--brown-deep);
 }
 
 .paragraphs {

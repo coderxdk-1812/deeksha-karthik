@@ -10,7 +10,7 @@ import { isAuthError, useAdminAuth } from "../AdminAuthContext";
 import styles from "./ProjectForm.module.css";
 
 const ACCENTS: { value: AdminProject["accent"]; hex: string }[] = [
-  { value: "terracotta", hex: "#bd5433" },
+  { value: "brown", hex: "#75492e" },
   { value: "butter", hex: "#dfa438" },
   { value: "green", hex: "#5d6e42" },
   { value: "blue", hex: "#4c6e78" },
@@ -21,6 +21,7 @@ interface FormFields {
   shortDescription: string;
   description: string;
   url: string;
+  githubUrl: string;
   category: string;
   status: AdminProject["status"];
   accent: AdminProject["accent"];
@@ -37,6 +38,7 @@ function toFields(p: AdminProject): FormFields {
     shortDescription: p.shortDescription,
     description: p.description,
     url: p.url,
+    githubUrl: p.githubUrl ?? "",
     category: p.category,
     status: p.status,
     accent: p.accent,
@@ -96,6 +98,7 @@ export function ProjectForm() {
         shortDescription: fields.shortDescription,
         description: fields.description,
         url: fields.url,
+        githubUrl: fields.githubUrl,
         category: fields.category,
         status: fields.status,
         accent: fields.accent,
@@ -198,6 +201,10 @@ export function ProjectForm() {
                 <label className={styles.label} htmlFor="f-category">Category</label>
                 <input id="f-category" className={styles.input} value={fields.category} onChange={(e) => updateField("category", e.target.value)} />
               </div>
+            </div>
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="f-github">GitHub URL (optional)</label>
+              <input id="f-github" className={styles.input} value={fields.githubUrl} onChange={(e) => updateField("githubUrl", e.target.value)} placeholder="https://github.com/…" />
             </div>
             <div className={styles.row2}>
               <div className={styles.field}>

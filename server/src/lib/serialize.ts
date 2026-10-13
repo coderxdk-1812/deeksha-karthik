@@ -7,6 +7,7 @@ export interface ProjectRow {
   short_description: string;
   description: string;
   url: string;
+  github_url: string | null;
   category: string;
   status: string;
   publish_state: string;
@@ -55,6 +56,7 @@ export function toPublicProject(row: ProjectRow, catalogNumber: string) {
     shortDescription: row.short_description,
     description: row.description,
     url: row.url,
+    githubUrl: row.github_url ?? undefined,
     category: row.category,
     status: row.status,
     accent: row.accent,
@@ -78,6 +80,7 @@ export function toAdminProject(row: ProjectRow) {
     shortDescription: row.short_description,
     description: row.description,
     url: row.url,
+    githubUrl: row.github_url ?? "",
     category: row.category,
     status: row.status,
     publishState: row.publish_state,

@@ -108,3 +108,9 @@
     right: 12px;
   }
 }
+
+/* The global focus ring is ink, which disappears on the dark overlay. */
+.closeBtn:focus-visible,
+.navBtn:focus-visible {
+  outline-color: var(--paper-white);
+}
