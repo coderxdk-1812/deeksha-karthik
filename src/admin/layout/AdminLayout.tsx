@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useAdminAuth } from "../AdminAuthContext";
+import { SyncStatus } from "../components/SyncStatus";
 import styles from "./AdminLayout.module.css";
 
 const NAV_ITEMS = [
@@ -34,6 +35,7 @@ export function AdminLayout() {
         </nav>
 
         <div className={styles.sidebarFooter}>
+          <SyncStatus />
           <a href="/" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
             View live site ↗
           </a>

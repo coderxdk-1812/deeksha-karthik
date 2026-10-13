@@ -1,5 +1,5 @@
 import { api } from "../../lib/apiClient";
-import type { AdminProject, AdminProfile, AdminComment } from "./types";
+import type { AdminProject, AdminProfile, AdminComment, SyncStatus } from "./types";
 
 export const authApi = {
   login: (password: string) => api.post<{ ok: true }>("/api/auth/login", { password }),
@@ -71,4 +71,9 @@ export const miscApi = {
   updateNotes: (notes: string) => api.put<{ notes: string }>("/api/admin/notes", { notes }),
   changePassword: (currentPassword: string, newPassword: string) =>
     api.post<{ ok: true }>("/api/admin/change-password", { currentPassword, newPassword }),
+};
+
+export const syncApi = {
+  status: () => api.get<SyncStatus>("/api/admin/sync/status"),
+  now: () => api.post<SyncStatus>("/api/admin/sync/now"),
 };

@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 import "./db.js";
 import { runSeedIfEmpty } from "./seed.js";
 import { runMigrations } from "./migrations.js";
+import { flushOnShutdown, restoreContent, scheduleSync } from "./lib/contentSync.js";
 import { pruneExpiredSessions, requireAdmin } from "./lib/auth.js";
 import { UPLOADS_ROOT } from "./lib/images.js";
 import { publicRouter } from "./routes/public.js";
@@ -16,6 +17,7 @@ import { adminProjectsRouter } from "./routes/adminProjects.js";
 import { adminProfileRouter } from "./routes/adminProfile.js";
 import { adminCommentsRouter } from "./routes/adminComments.js";
 import { adminMiscRouter } from "./routes/adminMisc.js";
+import { adminSyncRouter } from "./routes/adminSync.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -49,6 +51,19 @@ app.use("/api/public", publicRouter);
 
 // everything under /api/admin requires a valid session
 app.use("/api/admin", requireAdmin);
+
+// After any change to content (not comments, passwords or sessions), save it
+// to the GitHub repo shortly afterwards so it survives restarts and deploys.
+const SAVED_TO_GITHUB = ["/projects", "/profile", "/notes"];
+app.use("/api/admin", (req, res, next) => {
+  if (req.method !== "GET" && SAVED_TO_GITHUB.some((prefix) => req.path.startsWith(prefix))) {
+    res.on("finish", () => {
+      if (res.statusCode < 400) scheduleSync();
+    });
+  }
+  next();
+});
+app.use("/api/admin/sync", adminSyncRouter);
 app.use("/api/admin/projects", adminProjectsRouter);
 app.use("/api/admin/profile", adminProfileRouter);
 app.use("/api/admin/comments", adminCommentsRouter);
@@ -81,6 +96,17 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
   res.status(500).json({ error: "Something went wrong on the server." });
 });
 
+// Load the saved content from GitHub before accepting requests, so the first
+// visitor never sees the built-in starter content.
+await restoreContent();
+
 app.listen(PORT, () => {
   console.log(`Portfolio API listening on http://localhost:${PORT}`);
 });
+
+// A deploy or sleep sends SIGTERM; save any change made in the last few seconds first.
+for (const signal of ["SIGTERM", "SIGINT"] as const) {
+  process.on(signal, () => {
+    void flushOnShutdown().finally(() => process.exit(0));
+  });
+}

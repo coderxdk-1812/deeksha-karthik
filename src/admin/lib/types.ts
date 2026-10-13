@@ -54,3 +54,16 @@ export interface AdminComment {
   helpfulCount: number;
   createdAt: string;
 }
+
+export interface SyncStatus {
+  /** False when GITHUB_TOKEN / GITHUB_REPO aren't set, so changes only live on the server. */
+  configured: boolean;
+  repo: string | null;
+  branch: string | null;
+  state: "off" | "idle" | "pending" | "syncing" | "ok" | "error" | "paused";
+  lastSyncedAt: string | null;
+  lastError: string | null;
+  pausedReason: string | null;
+  repoPrivate: boolean | null;
+  savesPrivateContent: boolean | null;
+}

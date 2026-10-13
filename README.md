@@ -125,23 +125,58 @@ Deploy the backend first so you have its URL for `ALLOWED_ORIGIN`/`VITE_API_URL`
 deploy both once and circle back to fill in each other's URLs — Render lets you edit
 env vars and redeploy after the fact.
 
-## Without a persistent disk (Render free tier)
+## Saving admin changes to GitHub
 
-The SQLite file and `uploads/` live on the web service's own filesystem, which is
-wiped on every restart/redeploy when there's no disk. Practically:
+On Render's free tier the server's disk is wiped on every deploy and every time the
+service wakes from sleep, so anything saved only in the server's database is lost.
+Instead, **every change you make in the admin panel is committed into this repo**
+(`server/content/`: a `content.json` plus the uploaded images) a few seconds after you
+make it, and the server **loads it back from GitHub every time it starts**. So code
+pushes, sleep and restarts no longer touch your content, and my code updates never
+overwrite it: once saved content exists, the starter content in `seed.ts` and
+`migrations.ts` is no longer used.
 
-- The database is rebuilt on every boot: `seed.ts` creates the placeholder projects,
-  then `migrations.ts` applies the real content on top.
-- **Anything typed into the live admin panel is lost on the next restart** — projects,
-  About Me, comments, uploaded screenshots/photo, and a changed admin password
-  (it falls back to the `ADMIN_PASSWORD` env var).
-- So content that has to stick belongs in **`server/src/migrations.ts`** (Kedayam,
-  Zenith and Revisebot live there; SafeSurf is retired there), committed and pushed.
-  Migrations are idempotent and tracked in `schema_migrations`, so they also apply
-  exactly once to an existing database.
-- Image uploads can't be committed that way. Until there's a disk (or external
-  storage — see the swap points in "Architecture"), real screenshots/icons won't
-  survive a restart, and projects fall back to the generated placeholder art.
+What's saved: your profile and photo, every project (text, icon, screenshots, order,
+published/draft), and your private notes. What isn't: visitor comments and your
+replies to them, the admin password, and login sessions (you'll be logged out
+whenever the service restarts).
+
+The admin sidebar shows the state: **Saving to GitHub…**, **Saved to GitHub**, or a
+warning. Changes made within a few seconds of a shutdown are flushed first.
+
+### Setup (once)
+
+1. **Make the repo private** (GitHub → repo → Settings → General → Danger Zone →
+   Change visibility). Render can still deploy it. This matters: while the repo is
+   public the server saves **only published content**, because drafts and private
+   notes must never be written to a public repository. You'll see a warning in the
+   admin until it's private.
+2. **Create a token**: GitHub → Settings → Developer settings → Personal access
+   tokens → *Fine-grained tokens* → Generate. Repository access: **Only select
+   repositories → this repo**. Permissions → Repository permissions →
+   **Contents: Read and write** (nothing else). Choose an expiry; when it expires the
+   admin will say it couldn't save, and you replace the token.
+3. **Add to the backend service on Render** (Environment): `GITHUB_TOKEN` (the
+   token) and `GITHUB_REPO` (`coderxdk-1812/deeksha-karthik`). Redeploy once.
+4. **Recommended, on both services** (Settings → Build & Deploy → Build Filters →
+   Ignored Paths): `server/content/**`. Otherwise every save also triggers a redeploy
+   of both services (which works, but is wasteful and logs you out). The server reads
+   content from GitHub when it starts, so it doesn't need a redeploy to stay current.
+
+### Things to know
+
+- The first change you make after setup saves the whole current site, so the repo
+  gets a complete baseline.
+- **Pull before you push.** The server commits to `main`, so your local copy falls
+  behind: run `git pull --rebase` first.
+- Saving is **paused**, with the reason shown, rather than risk overwriting anything
+  if (a) GitHub couldn't be reached when the server started, or (b) the saved file
+  was changed by something else since the server loaded it. Restart the service to
+  recover. Edits made while paused only live on the server until then.
+- Don't hand-edit `server/content/content.json`. If you must, restart the service so it
+  reloads it.
+- Without these variables (local development) nothing is committed and the admin says
+  so.
 
 ## Branding
 
