@@ -12,7 +12,7 @@
 /* Pin the left column while the text scrolls, but only when the window is
    tall enough to show all of it — with a larger photo it can otherwise be
    taller than a short laptop screen and its links would be unreachable. */
-@media (min-width: 861px) and (min-height: 960px) {
+@media (min-width: 861px) and (min-height: 900px) {
   .sticky {
     position: sticky;
     top: 100px;
@@ -20,7 +20,7 @@
 }
 
 .photoWrap {
-  width: min(100%, 540px);
+  width: min(100%, 470px);
   aspect-ratio: 1 / 1;
   margin-bottom: 26px;
   border-radius: var(--radius-md);
