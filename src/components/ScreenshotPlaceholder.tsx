@@ -1,5 +1,5 @@
 import type { Accent } from "../lib/accent";
-import { accentHex } from "../lib/accent";
+import { accentColors } from "../lib/accent";
 
 interface ScreenshotPlaceholderProps {
   accent: Accent;
@@ -16,7 +16,7 @@ const VARIANTS = ["dashboard", "list", "chat", "grid"] as const;
  * real screenshot in via `screenshots[].src` and this never renders.
  */
 export function ScreenshotPlaceholder({ accent, index, className }: ScreenshotPlaceholderProps) {
-  const { base, deep, tint } = accentHex[accent];
+  const { base, deep, tint } = accentColors(accent);
   const variant = VARIANTS[index % VARIANTS.length];
 
   return (

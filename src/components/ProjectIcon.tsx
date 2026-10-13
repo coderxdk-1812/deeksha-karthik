@@ -1,5 +1,5 @@
 import type { Accent } from "../lib/accent";
-import { accentHex } from "../lib/accent";
+import { accentColors } from "../lib/accent";
 import { resolveAssetUrl } from "../lib/apiClient";
 
 interface ProjectIconProps {
@@ -26,7 +26,7 @@ export function ProjectIcon({ name, icon, accent, size = 48 }: ProjectIconProps)
     return <img src={resolveAssetUrl(icon)} alt="" width={size} height={size} style={{ borderRadius: 10 }} />;
   }
 
-  const { base, deep } = accentHex[accent];
+  const { base, deep } = accentColors(accent);
   const initials = initialsFor(name);
 
   return (

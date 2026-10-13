@@ -9,6 +9,7 @@ import { Library } from "./pages/Library.tsx";
 import { ProjectPage } from "./pages/ProjectPage.tsx";
 import { About } from "./pages/About.tsx";
 import { NotFound } from "./pages/NotFound.tsx";
+import { RouteError } from "./components/RouteError.tsx";
 
 import { AdminAuthProvider } from "./admin/AdminAuthContext.tsx";
 import { AdminToastProvider } from "./admin/AdminToastContext.tsx";
@@ -53,7 +54,7 @@ function AdminLoginRoot() {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<PublicSite />}>
+      <Route path="/" element={<PublicSite />} errorElement={<RouteError />}>
         <Route index element={<Home />} />
         <Route path="projects" element={<Library />} />
         <Route path="projects/:slug" element={<ProjectPage />} />
@@ -65,8 +66,8 @@ const router = createBrowserRouter(
           a valid server-side session; ProtectedRoute redirects to
           /admin/login otherwise, and every API call it makes is
           independently gated by requireAdmin on the server. */}
-      <Route path="/admin/login" element={<AdminLoginRoot />} />
-      <Route path="/admin" element={<AdminRoot />}>
+      <Route path="/admin/login" element={<AdminLoginRoot />} errorElement={<RouteError />} />
+      <Route path="/admin" element={<AdminRoot />} errorElement={<RouteError />}>
         <Route element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="projects/:id/edit" element={<ProjectForm />} />
